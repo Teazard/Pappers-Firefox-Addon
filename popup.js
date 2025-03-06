@@ -4,20 +4,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const hostname = url.hostname.replace("www.", "").split(".")[0];
     
     browser.tabs.executeScript(
-      {
-        code: "window.getSelection().toString();"
-      },
+      {code: "window.getSelection().toString();"},
       (selection) => {
         const selectedText = selection && selection[0].trim();
         document.getElementById("urlField").value = selectedText || hostname;
-      }
-    );
+      });
   });
 
-  document.getElementById("searchButton").addEventListener("click", () => {
+  function searchPappers() {
     const query = document.getElementById("urlField").value.trim();
-    const encodedQuery = encodeURIComponent(query);
-    const pappersURL = `https://www.pappers.fr/recherche?q=${encodedQuery}`;
-    browser.tabs.create({ url: pappersURL });
+    if (query) {
+      const encodedQuery = encodeURIComponent(query);
+      const pappersURL = `https://www.pappers.fr/recherche?q=${encodedQuery}`;
+      browser.tabs.create({ url: pappersURL });
+    }
+  }
+
+  document.getElementById("searchButton").addEventListener("click", searchPappers);
+
+  document.getElementById("urlField").addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {searchPappers();}
   });
 });
