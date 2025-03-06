@@ -19,9 +19,9 @@ A simple Firefox extension that allows you to quickly search for companies on Pa
 
 ## Usage
 
-6. Click on the extension icon in the toolbar.
-7. The popup will display a text field with either the extracted company name or the highlighted text from the page.
-8. Click **Search on Pappers** to open the search results in a new tab.
+1. Click on the extension icon in the toolbar.
+2. The popup will display a text field with either the extracted company name or the highlighted text from the page.
+3. Click **Search on Pappers** to open the search results in a new tab.
 
 ## Files Structure
 
@@ -34,7 +34,8 @@ A simple Firefox extension that allows you to quickly search for companies on Pa
 
 - Better domain parsing for improved accuracy.
 - Additional search filters.
-- Persistent settings for user preferences.
+- Refresh of the overall design
+- Who knows put a preview of the search in the pop-up like the scholar add-on ?
 
 ## License
 
